@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Automation" parallel="tests" thread-count="4">
+<suite name="Test Automation" parallel="tests" thread-count="2">
 
     <test name="1">
 
@@ -10,20 +10,6 @@
     </test>
 
     <test name="2">
-
-        <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
-        </classes>
-    </test>
-
-    <test name="3">
-
-        <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
-        </classes>
-    </test>
-
-    <test name="4">
 
         <classes>
             <class name="appium.seetest_specific.performance.PerformanceTransaction"/>

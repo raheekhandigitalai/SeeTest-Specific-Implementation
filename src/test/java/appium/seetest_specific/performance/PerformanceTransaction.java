@@ -45,7 +45,7 @@ public class PerformanceTransaction {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
 
-        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and contains(@version, '14.') and @emulator='true'");
+        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
 
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");

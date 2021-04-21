@@ -54,7 +54,7 @@ public class TestNGListener {
      * By using the Listener as per Line 6, we are directly listening to TestNG events, and based on the test result in the IDE,
      * is what we will show in the SeeTestReporter as well.
      *
-     * The Listener can also be used in a testng.xml file, referenced like this:
+     * The Listener can also be used in a parallel_simulator_and_physical_device.xml file, referenced like this:
      *
      *     <listeners>
      *         <listener class-name="com.experitest.reporter.testng.Listener"/>

@@ -1,4 +1,4 @@
-package appium.oss;
+package appium.basics.devicequery;
 
 import helpers.PropertiesReader;
 import io.appium.java_client.android.AndroidDriver;
@@ -19,6 +19,41 @@ import java.net.URL;
 
 public class iOSTest {
 
+     /**
+     *
+     * ==================================================
+     *                      READ ME                     =
+     * ==================================================
+     *
+      * By using @Parameter annotation in the setUp method, we are able to parameterize the "deviceQuery" capability
+      * so that we can run this same Test Class against different set of devices, even scenarios like running this
+      * same test against Physical Devices and Simulators.
+      *
+      * In the parallel_simulator_and_physical_device.xml file we've defined two test blocks:
+      *
+      *    <test name="1">
+      *
+      *         <parameter name="deviceQuery" value="@os='ios'" />
+      *
+      *         <classes>
+      *             <class name="appium.basics.devicequery.iOSTest"/>
+      *         </classes>
+      *     </test>
+      *
+      *     <test name="2">
+      *
+      *         <parameter name="deviceQuery" value="@os='ios' and @emulator='true'" />
+      *
+      *         <classes>
+      *             <class name="appium.basics.devicequery.iOSTest"/>
+      *         </classes>
+      *     </test>
+     *
+      * The first test will run on any available iOS device as per the Device Query.
+      * The second test will run on any available iOS Simulator as per the Device Query.
+     *
+     */
+
     protected IOSDriver<IOSElement> driver = null;
     protected DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
@@ -31,11 +66,6 @@ public class iOSTest {
         desiredCapabilities.setCapability("deviceQuery", deviceQuery);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
-        desiredCapabilities.setCapability("dontGoHomeOnQuit", true);
-
-        desiredCapabilities.setCapability("automationName", "XCUITest");
-        desiredCapabilities.setCapability("appiumVersion", "1.18.2");
-        desiredCapabilities.setCapability("platformName", "iOS");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
     }

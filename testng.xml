@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Automation" parallel="tests" thread-count="2">
+
+    <test name="1">
+
+        <parameter name="deviceQuery" value="@os='ios'" />
+
+        <classes>
+            <class name="appium.oss.iOSTest"/>
+        </classes>
+    </test>
+
+    <test name="2">
+
+        <parameter name="deviceQuery" value="@os='ios' and @emulator='true'" />
+
+        <classes>
+            <class name="appium.oss.iOSTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -85,7 +85,7 @@ public class PerformanceTransaction {
         System.out.println(paymentTransaction.toString());
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }

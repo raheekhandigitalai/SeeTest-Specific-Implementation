@@ -1,4 +1,4 @@
-package appium.seetest_specific.audio;
+package appium.seetest_specific.ada.audio;
 
 import helpers.PropertiesReader;
 import io.appium.java_client.android.AndroidDriver;
@@ -37,23 +37,21 @@ public class AndroidAudioTesting {
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-
-        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
-        desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
+        desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
 
         driver = new AndroidDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
     }
 
     @Test
     public void record_audio() {
-
+        driver.executeScript("seetest:client.startAudioRecording(\"\")");
+        driver.executeScript("seetest:client.stopAudioRecording()");
     }
 
     @Test
     public void play_audio_to_phone() {
-
+        driver.executeScript("seetest:client.startAudioPlay(\"\")");
+        driver.executeScript("seetest:client.stopAudioPlay()");
     }
 
     @AfterMethod(alwaysRun = true)

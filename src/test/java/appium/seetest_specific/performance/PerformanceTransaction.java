@@ -1,11 +1,12 @@
 package appium.seetest_specific.performance;
 
-import com.experitest.appium.SeeTestClient;
 import helpers.PropertiesReader;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ScreenOrientation;
@@ -44,9 +45,7 @@ public class PerformanceTransaction {
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-
         desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
 

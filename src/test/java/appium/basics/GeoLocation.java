@@ -1,5 +1,6 @@
 package appium.basics;
 
+import helpers.PropertiesReader;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
@@ -10,22 +11,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class GeoLocation {
 
-    private String accessKey = "eyJ4cC51Ijo3MzU0MjQsInhwLnAiOjIsInhwLm0iOiJNVFUzT0RZd016ZzFOek16TVEiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4OTM5NjM4NTcsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.GP0hK0o0j2WEKt-J0aXsVbu1tmt-PhWUryqluokszJk";
     protected IOSDriver<IOSElement> driver = null;
-    DesiredCapabilities dc = new DesiredCapabilities();
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
     @BeforeMethod
-    public void setUp() throws MalformedURLException {
-        dc.setCapability("accessKey", accessKey);
-        dc.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-        dc.setCapability("bundleId", "com.apple.Maps");
-        dc.setCapability("autoAcceptAlerts", true);
-        driver = new IOSDriver<>(new URL("https://uscloud.experitest.com/wd/hub"), dc);
+    public void setUp(Method method) throws MalformedURLException {
+        desiredCapabilities.setCapability("testName", method.getName());
+        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+        desiredCapabilities.setCapability("bundleId", "com.apple.Maps");
+        desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
+        desiredCapabilities.setCapability("autoAcceptAlerts", true);
+
+        driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
     }
 
     @Test

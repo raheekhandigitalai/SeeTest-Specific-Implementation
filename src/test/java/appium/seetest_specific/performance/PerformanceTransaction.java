@@ -45,7 +45,8 @@ public class PerformanceTransaction {
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+//        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+        desiredCapabilities.setCapability("udid", "00008030-001E1DE23CD0802E");
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
 

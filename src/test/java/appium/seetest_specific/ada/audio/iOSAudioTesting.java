@@ -6,6 +6,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -41,24 +42,24 @@ public class iOSAudioTesting {
         desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
+
+//        SeeTestClient client;
     }
 
-    // https://docs.experitest.com/pages/viewpage.action?spaceKey=TET&title=SendKeysWithBT
     @Test
     public void testing() {
-
-        // Validate audio file each interaction
-        // Any interaction needs to happen through BT Commands
-
-        // Enable VoiceOver / TalkBack (Make sure its always on)
-        // Start Application
-        // Go to next element / send text
-        // Validate you are on that element (Need to listen / understand where I am)
+//        for (int i = 0; i < 10; i++) {
+//            if (element is found) {
+//                // tap through keyboard / voiceover
+//            }
+//            driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
+//        }
     }
 
     @Test
     public void record_audio() {
         driver.executeScript("seetest:client.startAudioRecording(\"\")");
+        // Any operations
         driver.executeScript("seetest:client.stopAudioRecording()");
     }
 
@@ -72,5 +73,15 @@ public class iOSAudioTesting {
     public void tearDown() {
         driver.quit();
     }
+
+    // Validate audio file each interaction
+    // Any interaction needs to happen through BT Commands
+
+    // Enable VoiceOver / TalkBack (Make sure its always on)
+    // Start Application
+    // Go to next element / send text
+    // Validate you are on that element (Need to listen / understand where I am)
+
+    // https://docs.experitest.com/pages/viewpage.action?spaceKey=TET&title=SendKeysWithBT
 
 }

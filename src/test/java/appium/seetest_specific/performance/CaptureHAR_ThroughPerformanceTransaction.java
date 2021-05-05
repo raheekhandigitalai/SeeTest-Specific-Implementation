@@ -1,11 +1,13 @@
 package appium.seetest_specific.performance;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
+//import com.mashape.unirest.http.HttpResponse;
+//import com.mashape.unirest.http.Unirest;
 import helpers.PropertiesReader;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -81,32 +83,35 @@ public class CaptureHAR_ThroughPerformanceTransaction {
         String url = "https://uscloud.experitest.com/api/transactions/%d/har";
 
         url = String.format(url, transactionId);
-        HttpResponse<InputStream> response = Unirest.get(url)
-                .queryString("token", new PropertiesReader().getProperty("seetest.accesskey"))
-                .asBinary();
-        int status = response.getStatus();
-        Assert.assertEquals(200, status);
-        if (status == 200) {
-            List<String> disposition = response.getHeaders().get("Content-Disposition");
-            String fileName = "harfile";
-            if (disposition != null && !disposition.isEmpty()) {
-                fileName = disposition.get(0).split("=")[1];
-            }
-//            fileName = "/tmp/" + fileName;
-            fileName = System.getProperty("user.dir") + "\\resources\\har_files\\" + fileName;
-            saveToFile(response.getBody(), fileName);
-            Assert.assertTrue(new File(fileName).exists());
+        Unirest.get(url).queryString("token", new PropertiesReader().getProperty("seetest.accesskey")).asFile(System.getProperty("user.dir") + "\\resources\\har_files\\harfile.json");
+
+//        url = String.format(url, transactionId);
+//        HttpResponse<InputStream> response = Unirest.get(url)
+//                .queryString("token", new PropertiesReader().getProperty("seetest.accesskey"))
+//                .asBinary();
+//        int status = response.getStatus();
+//        Assert.assertEquals(200, status);
+//        if (status == 200) {
+//            List<String> disposition = response.getHeaders().get("Content-Disposition");
+//            String fileName = "harfile";
+//            if (disposition != null && !disposition.isEmpty()) {
+//                fileName = disposition.get(0).split("=")[1];
+//            }
+////            fileName = "/tmp/" + fileName;
+//            fileName = System.getProperty("user.dir") + "\\resources\\har_files\\" + fileName;
+//            saveToFile(response.getBody(), fileName);
+//            Assert.assertTrue(new File(fileName).exists());
         }
     }
 
-    static void saveToFile(InputStream in, String fileName) throws IOException {
-        try (OutputStream out = new FileOutputStream(fileName)) {
-            byte[] buffer = new byte[1024];
-            int readCount;
-            while ((readCount = in.read(buffer)) != -1) {
-                out.write(buffer, 0, readCount);
-            }
-        }
-    }
+//    static void saveToFile(InputStream in, String fileName) throws IOException {
+//        try (OutputStream out = new FileOutputStream(fileName)) {
+//            byte[] buffer = new byte[1024];
+//            int readCount;
+//            while ((readCount = in.read(buffer)) != -1) {
+//                out.write(buffer, 0, readCount);
+//            }
+//        }
+//    }
 
-}
+//}

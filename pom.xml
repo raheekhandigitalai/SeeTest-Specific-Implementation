@@ -26,15 +26,21 @@
         </dependency>
 
         <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.11.06</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.experitest</groupId>
             <artifactId>reporter-testng</artifactId>
-            <version>21.1</version>
+            <version>21.4</version>
         </dependency>
 
         <dependency>
             <groupId>com.experitest</groupId>
             <artifactId>appium-seetest-extension</artifactId>
-            <version>21.1</version>
+            <version>21.4</version>
         </dependency>
 
         <dependency>

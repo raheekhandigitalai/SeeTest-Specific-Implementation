@@ -12,9 +12,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.*;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
 
 public class iOSAudioTesting {
 
@@ -34,54 +38,24 @@ public class iOSAudioTesting {
 
     protected IOSDriver<IOSElement> driver = null;
     protected DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    protected SeeTestClient client;
 
     @BeforeMethod
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
         desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
+        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
-
-//        SeeTestClient client;
+        client = new SeeTestClient(driver);
     }
 
-    @Test
-    public void testing() {
-//        for (int i = 0; i < 10; i++) {
-//            if (element is found) {
-//                // tap through keyboard / voiceover
-//            }
-//            driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
-//        }
-    }
-
-    @Test
-    public void record_audio() {
-        driver.executeScript("seetest:client.startAudioRecording(\"\")");
-        // Any operations
-        driver.executeScript("seetest:client.stopAudioRecording()");
-    }
-
-    @Test
-    public void play_audio_to_phone() {
-        driver.executeScript("seetest:client.startAudioPlay(\"\")");
-        driver.executeScript("seetest:client.stopAudioPlay()");
-    }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }
-
-    // Validate audio file each interaction
-    // Any interaction needs to happen through BT Commands
-
-    // Enable VoiceOver / TalkBack (Make sure its always on)
-    // Start Application
-    // Go to next element / send text
-    // Validate you are on that element (Need to listen / understand where I am)
-
-    // https://docs.experitest.com/pages/viewpage.action?spaceKey=TET&title=SendKeysWithBT
 
 }

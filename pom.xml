@@ -19,16 +19,16 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.mashape.unirest</groupId>
-            <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.mashape.unirest</groupId>-->
+<!--            <artifactId>unirest-java</artifactId>-->
+<!--            <version>1.4.9</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.konghq</groupId>
             <artifactId>unirest-java</artifactId>
-            <version>3.11.06</version>
+            <version>3.11.11</version>
         </dependency>
 
         <dependency>

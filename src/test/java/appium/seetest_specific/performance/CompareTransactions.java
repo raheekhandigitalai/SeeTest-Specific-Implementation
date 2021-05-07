@@ -22,9 +22,9 @@ public class CompareTransactions {
      *
      *      {
      *          "filter": [ ...<filter expression>... ],
-     *          "baseKey": <string>,
-     *          "baseKeyValue": <string value>,
-     *          "compareCount": <integer>,
+     *          "baseKey": <appVersion>,
+     *          "baseKeyValue": 7.0,
+     *          "compareCount": 2 (6.8 / 6.9),
      *          "comparisonTargets": [
      *              {
      *                  "name": <string>,

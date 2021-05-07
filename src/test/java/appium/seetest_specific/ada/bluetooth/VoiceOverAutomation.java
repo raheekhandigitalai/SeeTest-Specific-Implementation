@@ -85,12 +85,14 @@ public class VoiceOverAutomation {
         desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
+
         client = new SeeTestClient(driver);
     }
 
     @Test
     public void record_audio_while_doing_voice_over() throws InterruptedException {
         client.startAudioRecording(System.getProperty("user.dir") + "\\resources\\audio_recordings\\audio.wav");
+
         for (int i = 0; i < 4; i++) {
             driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
             Thread.sleep(6000);

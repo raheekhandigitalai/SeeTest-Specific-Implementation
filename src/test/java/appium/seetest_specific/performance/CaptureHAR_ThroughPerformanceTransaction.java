@@ -28,7 +28,7 @@ public class CaptureHAR_ThroughPerformanceTransaction {
     protected AppiumDriver driver = null;
     protected DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-    String platformName = "Android";
+    String platformName = "iOS";
 
     @BeforeMethod
     public void setUp(Method method) throws MalformedURLException {

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Automation" parallel="tests" thread-count="5">
+
+    <test name="1">
+
+        <classes>
+            <class name="selenium.simple_browser_tests.ChromeTest"/>
+        </classes>
+    </test>
+
+    <test name="2">
+
+        <classes>
+            <class name="selenium.simple_browser_tests.EdgeTest"/>
+        </classes>
+    </test>
+
+    <test name="3">
+
+        <classes>
+            <class name="selenium.simple_browser_tests.FirefoxTest"/>
+        </classes>
+    </test>
+
+    <test name="4">
+
+        <classes>
+            <class name="selenium.simple_browser_tests.IETest"/>
+        </classes>
+    </test>
+
+    <test name="5">
+
+        <classes>
+            <class name="selenium.simple_browser_tests.SafariTest"/>
+        </classes>
+    </test>
+
+</suite>

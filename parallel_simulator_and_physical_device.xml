@@ -7,7 +7,7 @@
         <parameter name="deviceQuery" value="@os='ios'" />
 
         <classes>
-            <class name="appium.basics.devicequery.iOSTest"/>
+            <class name="appium.basics.devicequery.ParameterizedDeviceQueries"/>
         </classes>
     </test>
 
@@ -16,7 +16,7 @@
         <parameter name="deviceQuery" value="@os='ios' and @emulator='true'" />
 
         <classes>
-            <class name="appium.basics.devicequery.iOSTest"/>
+            <class name="appium.basics.devicequery.ParameterizedDeviceQueries"/>
         </classes>
     </test>
 

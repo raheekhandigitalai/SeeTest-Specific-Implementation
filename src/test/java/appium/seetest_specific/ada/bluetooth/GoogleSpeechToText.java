@@ -81,44 +81,138 @@ public class GoogleSpeechToText {
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
-        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
+//        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+        desiredCapabilities.setCapability("udid", "00008020-001C61863CE9002E");
+//        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
+//        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
         client = new SeeTestClient(driver);
     }
 
-    @Test
-    public void testing() throws InterruptedException {
-        String localFilePath = System.getProperty("user.dir") + "\\recordings\\first_element.wav";
-
-        // Start Audio Recording to save it locally
-        client.startAudioRecording(localFilePath);
-
-        // Perform a Voice Over operation
-        driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
-
-        // Hard coded sleep to wait for the VoiceOver to read back the text in time
-        Thread.sleep(6000);
-
-        // Finish the Audio Recording
-        client.stopAudioRecording();
-
-        // Passing in the audio file, making it readable and storing it in an i.e. ArrayList.
-        ArrayList arrayList = convertWavAudioFileToReadableText(localFilePath);
-        for (int i = 0; i < arrayList.size(); i++) {
-            System.out.printf("Transcript: %s\n", arrayList.get(i));
-        }
-
-        // Do any type of logic you'd want, i.e., making sure the Array contains the text "Username"
-        // This gives the user an indication on where they are on the page, allowing the automation
-        // script to proceed accordingly, i.e. clicking / performing any other type of navigation.
-    }
-
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+    }
+
+    @Test
+    public void testing() throws InterruptedException {
+        client.setProperty("ios.dump.focus.process", "process_name:votd");
+        Thread.sleep(10000);
+        String dump = client.getVisualDump("NATIVE");
+        System.out.println(dump);
+//        String[] applications = client.getRunningApplications();
+//
+//        int counter = 0;
+//
+//        for (int i = 0; i < applications.length; i++) {
+//            System.out.println(counter++ + " : " + applications[i]);
+//        }
+    }
+
+    @Test
+    public void record_and_validate() throws InterruptedException {
+//        String firstElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\first_element.wav";
+//        startAudioRecording(firstElementAudioFile);
+//
+//        // Perform a Voice Over operation
+//        sendKeysWithBT("" + Keys.RIGHT + Keys.LEFT);
+//
+//        // Hard coded sleep to wait for the VoiceOver to read back the text in time
+//        Thread.sleep(6000);
+//
+//        // Finish the Audio Recording
+//        stopAudioRecording();
+//
+//        boolean userNameTextFieldExists = doesItemExist("usernametextfield", firstElementAudioFile);
+//        System.out.println(userNameTextFieldExists);
+//
+//        if (userNameTextFieldExists) {
+//
+//        }
+
+        driver.executeScript("seetest:client.setProperty(\"ios.dump.focus.process\", \"process_name:CaptionPaneld\")");
+        String dump = (String) driver.executeScript("seetest:client.getVisualDump(\"NATIVE\")");
+        System.out.println(dump);
+
+        String firstElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\first_element.wav";
+        boolean usernameTextFieldExists = goToNextElement(firstElementAudioFile, "usernametextfield");
+
+
+        if (usernameTextFieldExists) {
+
+            tapOnElement();
+            String currentItem = readSelectedItem(System.getProperty("user.dir") + "\\resources\\audio_recordings\\read_selected_item.wav");
+            System.out.println(currentItem);
+
+//            String secondElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\second_element.wav";
+//            boolean passwordTextFieldExists = goToNextElement(secondElementAudioFile, "passwordtextfield");
+//
+//            if (passwordTextFieldExists) {
+//
+//            }
+
+        }
+    }
+
+    public String readSelectedItem(String localFilePath) throws InterruptedException {
+        startAudioRecording(localFilePath);
+        sendKeysWithBT("" + Keys.CONTROL+ Keys.ALT + "A");
+        Thread.sleep(6000);
+        stopAudioRecording();
+
+        String currentItem = "";
+        currentItem = whatIsCurrentItem(localFilePath);
+        return currentItem;
+    }
+
+    public void tapOnElement() {
+        sendKeysWithBT("" + Keys.CONTROL + Keys.ALT + " ");
+    }
+
+    public void goToPreviousElement() {
+        sendKeysWithBT("" + Keys.ARROW_LEFT);
+    }
+
+    public boolean goToNextElement(String localFilePath, String itemToFind) throws InterruptedException {
+        startAudioRecording(localFilePath);
+        sendKeysWithBT("" + Keys.RIGHT);
+        Thread.sleep(6000);
+        stopAudioRecording();
+
+        boolean doesItemExist = doesItemExist(itemToFind, localFilePath);
+        return doesItemExist;
+    }
+
+    public void sendKeysWithBT(Object... args) {
+        driver.executeScript("seetest:client.sendKeysWithBT", args);
+    }
+
+    public void startAudioRecording(String localFilePath) {
+        client.startAudioRecording(localFilePath);
+    }
+
+    public void stopAudioRecording() {
+        client.stopAudioRecording();
+    }
+
+    public String whatIsCurrentItem(String localFilePath) {
+        String item = "";
+        ArrayList arrayList = convertWavAudioFileToReadableText(localFilePath);
+        item = arrayList.toString();
+        return item;
+    }
+
+    public boolean doesItemExist(String voiceOverText, String localFilePath) {
+        // Passing in the audio file, making it readable and storing it in an i.e. ArrayList.
+        ArrayList arrayList = convertWavAudioFileToReadableText(localFilePath);
+        for (int i = 0; i < arrayList.size(); i++) {
+//            System.out.printf("Transcript: %s\n", arrayList.get(i).toString().replaceAll("\\s", ""));
+            if (arrayList.get(i).toString().replaceAll("\\s", "").contains(voiceOverText)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList convertWavAudioFileToReadableText(String localFilePath) {

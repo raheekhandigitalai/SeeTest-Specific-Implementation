@@ -5,6 +5,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -71,7 +72,9 @@ public class iOSApplicationSetup {
 
     @Test
     public void native_test() {
-
+        driver.findElement(By.id("usernameTextField")).sendKeys("company");
+        driver.findElement(By.id("passwordTextField")).sendKeys("company");
+        driver.findElement(By.id("loginButton")).click();
     }
 
     @AfterMethod(alwaysRun = true)

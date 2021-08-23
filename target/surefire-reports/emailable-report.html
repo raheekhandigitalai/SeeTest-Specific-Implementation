@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Test Automation</th></tr>
+<tr><td><a href="#t0">5</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">14,728</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">3</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">25,523</td><td></td><td></td></tr>
+<tr><td><a href="#t2">1</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">71,300</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t3">2</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">74,270</td><td></td><td></td></tr>
+<tr><td><a href="#t4">4</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">237,969</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">3</th><th class="num">0</th><th class="num">0</th><th class="num attn">2</th><th class="num">423,790</th><th colspan="2"></th></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Test Automation</th></tr></tbody><tbody id="t0"><tr><th colspan="4">5 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">selenium.simple_browser_tests.SafariTest</td><td><a href="#m0">browserTestGoogleSearch</a></td><td rowspan="1">1629124120688</td><td rowspan="1">4582</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">3 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">selenium.simple_browser_tests.FirefoxTest</td><td><a href="#m1">browserTestGoogleSearch</a></td><td rowspan="1">1629124122673</td><td rowspan="1">11578</td></tr></tbody>
+<tbody id="t2"><tr><th colspan="4">1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">selenium.simple_browser_tests.ChromeTest</td><td><a href="#m2">browserTestGoogleSearch</a></td><td rowspan="1">1629124128844</td><td rowspan="1">52317</td></tr></tbody>
+<tbody id="t3"><tr><th colspan="4">2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">selenium.simple_browser_tests.EdgeTest</td><td><a href="#m3">browserTestGoogleSearch</a></td><td rowspan="1">1629124119377</td><td rowspan="1">64487</td></tr></tbody>
+<tbody id="t4"><tr><th colspan="4">4 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">selenium.simple_browser_tests.IETest</td><td><a href="#m4">browserTestGoogleSearch</a></td><td rowspan="1">1629124227772</td><td rowspan="1">110556</td></tr></tbody>
+</table>
+<h2>5</h2><h3 id="m0">selenium.simple_browser_tests.SafariTest#browserTestGoogleSearch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: 
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-BN0SG4N&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_162&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, agentName: UKdemo-Selmac-Phy-Catalina, browserName: safari, browserVersion: 13.1.3, javascriptEnabled: true, platform: MAC, platformName: MAC, reportUrl: https://uscloud.experitest...., safari:automaticInspection: false, safari:automaticProfiling: false, safari:diagnose: false, safari:platformBuildVersion: 19H2, safari:platformVersion: 10.15.7, safari:useSimulator: false, sessionId: 864A5B3A-DCCE-4521-AB1C-4E4..., setWindowRect: true, strictFileInteractability: false, viewUrl: https://ukregion.experitest..., webkit:WebRTC: {DisableICECandidateFiltering: false, DisableInsecureMediaCapture: false}}
+Session ID: 864A5B3A-DCCE-4521-AB1C-4E47DD2148E5
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at selenium.simple_browser_tests.SafariTest.browserTestGoogleSearch(SafariTest.java:39)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>3</h2><h3 id="m1">selenium.simple_browser_tests.FirefoxTest#browserTestGoogleSearch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: [Exception... &quot;Data conversion failed because significant data would be lost&quot;  nsresult: &quot;0x80460003 (NS_ERROR_LOSS_OF_SIGNIFICANT_DATA)&quot;  location: &quot;&lt;unknown&gt;&quot;  data: no]
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-BN0SG4N&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_162&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, agentName: UK-SELWIN, browserName: firefox, browserVersion: 83.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20201112153044, moz:geckodriverVersion: 0.28.0, moz:headless: false, moz:processID: 6600, moz:profile: C:\Users\uscloud\AppData\Lo..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, reportUrl: https://uscloud.experitest...., rotatable: false, sessionId: 84de4776-dff0-464f-8611-512..., setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, viewUrl: https://ukregion.experitest..., webdriver.remote.sessionid: 84de4776-dff0-464f-8611-512...}
+Session ID: 84de4776-dff0-464f-8611-512afe45063f
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
+	at selenium.simple_browser_tests.FirefoxTest.browserTestGoogleSearch(FirefoxTest.java:41)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>1</h2><h3 id="m2">selenium.simple_browser_tests.ChromeTest#browserTestGoogleSearch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>2</h2><h3 id="m3">selenium.simple_browser_tests.EdgeTest#browserTestGoogleSearch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>4</h2><h3 id="m4">selenium.simple_browser_tests.IETest#browserTestGoogleSearch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

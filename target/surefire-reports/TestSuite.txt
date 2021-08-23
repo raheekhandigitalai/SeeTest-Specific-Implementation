@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 239.072 s <<< FAILURE! - in TestSuite
+browserTestGoogleSearch(selenium.simple_browser_tests.SafariTest)  Time elapsed: 2.602 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-BN0SG4N', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, agentName: UKdemo-Selmac-Phy-Catalina, browserName: safari, browserVersion: 13.1.3, javascriptEnabled: true, platform: MAC, platformName: MAC, reportUrl: https://uscloud.experitest...., safari:automaticInspection: false, safari:automaticProfiling: false, safari:diagnose: false, safari:platformBuildVersion: 19H2, safari:platformVersion: 10.15.7, safari:useSimulator: false, sessionId: 864A5B3A-DCCE-4521-AB1C-4E4..., setWindowRect: true, strictFileInteractability: false, viewUrl: https://ukregion.experitest..., webkit:WebRTC: {DisableICECandidateFiltering: false, DisableInsecureMediaCapture: false}}
+Session ID: 864A5B3A-DCCE-4521-AB1C-4E47DD2148E5
+	at selenium.simple_browser_tests.SafariTest.browserTestGoogleSearch(SafariTest.java:39)
+
+browserTestGoogleSearch(selenium.simple_browser_tests.FirefoxTest)  Time elapsed: 5.403 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+[Exception... "Data conversion failed because significant data would be lost"  nsresult: "0x80460003 (NS_ERROR_LOSS_OF_SIGNIFICANT_DATA)"  location: "<unknown>"  data: no]
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-BN0SG4N', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, agentName: UK-SELWIN, browserName: firefox, browserVersion: 83.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20201112153044, moz:geckodriverVersion: 0.28.0, moz:headless: false, moz:processID: 6600, moz:profile: C:\Users\uscloud\AppData\Lo..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, reportUrl: https://uscloud.experitest...., rotatable: false, sessionId: 84de4776-dff0-464f-8611-512..., setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, viewUrl: https://ukregion.experitest..., webdriver.remote.sessionid: 84de4776-dff0-464f-8611-512...}
+Session ID: 84de4776-dff0-464f-8611-512afe45063f
+	at selenium.simple_browser_tests.FirefoxTest.browserTestGoogleSearch(FirefoxTest.java:41)
+

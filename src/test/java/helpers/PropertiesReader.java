@@ -13,6 +13,15 @@ public class PropertiesReader {
 
         try {
             props.load(new FileInputStream(new File(System.getProperty("user.dir") + "\\resources\\setup.properties")));
+
+            if (props.getProperty("seetest.accesskey").isEmpty()) {
+                throw new Exception("SeeTest Cloud Access Key not found. Please look in resources/setup.properties.");
+            }
+
+            if (props.getProperty("cloud.url").isEmpty()) {
+                throw new Exception("SeeTest Cloud URL not found. Please look in resources/setup.properties.");
+            }
+
         } catch(Exception e) {
             e.printStackTrace();
             System.exit(-1);

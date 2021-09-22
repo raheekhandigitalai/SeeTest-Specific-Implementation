@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Automation" parallel="tests" thread-count="3">
+
+    <test name="1">
+
+        <parameter name="udid" value="123456"/>
+
+        <classes>
+            <class name="appium.oss.basics.browserstup.AndroidBrowserSetup"/>
+        </classes>
+    </test>
+
+    <test name="2">
+
+        <parameter name="udid" value="65444321"/>
+
+        <classes>
+            <class name="appium.oss.basics.browserstup.AndroidBrowserSetup"/>
+        </classes>
+    </test>
+
+    <test name="3">
+
+        <parameter name="udid" value="1245886"/>
+
+        <classes>
+            <class name="appium.oss.basics.browserstup.AndroidBrowserSetup"/>
+        </classes>
+    </test>
+
+</suite>

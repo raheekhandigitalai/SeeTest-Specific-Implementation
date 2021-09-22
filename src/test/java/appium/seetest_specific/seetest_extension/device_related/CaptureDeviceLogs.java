@@ -1,4 +1,4 @@
-package appium.seetest_specific.seetest_extension.network_related;
+package appium.seetest_specific.seetest_extension.device_related;
 
 import com.experitest.appium.SeeTestClient;
 import helpers.PropertiesReader;
@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CapturePCAP {
+public class CaptureDeviceLogs {
 
     /**
      *
@@ -29,13 +29,14 @@ public class CapturePCAP {
      * You may want to capture Network Transactions during your automated flow.
      * By using the following command:
      *
-     *      client.startCaptureNetworkDump(localPath);
+     *      client.startLoggingDevice(localPath);
      *
      * We start the capturing of network packets, until the following command is called:
      *
-     *      client.stopCaptureNetworkDump();
+     *      client.stopLoggingDevice();
      *
-     * https://docs.experitest.com/display/TE/CaptureNetworkDump
+     * https://docs.experitest.com/display/TE/StartLoggingDevice
+     * https://docs.experitest.com/display/TE/SeeTest+Client+-+StopLoggingDevice
      *
      *
      * Prerequisites:
@@ -76,7 +77,7 @@ public class CapturePCAP {
         driver = new AndroidDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
         client = new SeeTestClient(driver);
 
-        client.startCaptureNetworkDump(System.getProperty("user.dir") + "\\resources\\pcap_files\\file.pcap");
+        client.startLoggingDevice(System.getProperty("user.dir") + "\\resources\\devicelogs\\device_log.txt");
     }
 
     @Test
@@ -88,7 +89,7 @@ public class CapturePCAP {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        client.stopCaptureNetworkDump();
+        client.stopLoggingDevice();
         driver.quit();
     }
 

@@ -57,17 +57,19 @@ public class iOSApplicationSetup {
 
     @BeforeMethod
     public void setUp(Method method) throws MalformedURLException {
-        desiredCapabilities.setCapability("testName", method.getName());
+//        desiredCapabilities.setCapability("testName", method.getName());
+
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
+        desiredCapabilities.setCapability("deviceQuery", "@os='ios'");
 
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
-        desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
-        desiredCapabilities.setCapability("appBuildVersion", "1.0");
-        desiredCapabilities.setCapability("appReleaseVersion", "1.0");
-        desiredCapabilities.setCapability("installOnlyForUpdate", true);
+        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
+        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
-        driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
+//        desiredCapabilities.setCapability("appBuildVersion", "1.0");
+//        desiredCapabilities.setCapability("appReleaseVersion", "1.0");
+//        desiredCapabilities.setCapability("installOnlyForUpdate", true);
+
+        driver = new IOSDriver<>(new URL("https://vpndemous3.experitest.com/wd/hub"), desiredCapabilities);
     }
 
     @Test

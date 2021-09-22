@@ -58,16 +58,18 @@ public class AndroidApplicationSetup {
 
     @BeforeMethod
     public void setUp(Method method) throws MalformedURLException {
-        desiredCapabilities.setCapability("testName", method.getName());
-        desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-        desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
+//        desiredCapabilities.setCapability("testName", method.getName());
+//        desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
+//        desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
 
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
-        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
-        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
-        desiredCapabilities.setCapability("appBuildVersion", "4352");
-        desiredCapabilities.setCapability("appReleaseVersion", "1.01");
-        desiredCapabilities.setCapability("installOnlyForUpdate", true);
+
+        desiredCapabilities.setCapability("appPackage", "pro.oyster.heartbeat");
+        desiredCapabilities.setCapability("appActivity", ".activities.MHMainActivity");
+
+//        desiredCapabilities.setCapability("appBuildVersion", "4352");
+//        desiredCapabilities.setCapability("appReleaseVersion", "1.01");
+//        desiredCapabilities.setCapability("installOnlyForUpdate", true);
 
         driver = new AndroidDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
     }

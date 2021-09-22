@@ -83,8 +83,8 @@ public class GoogleSpeechToText {
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
 //        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
         desiredCapabilities.setCapability("udid", "00008020-001C61863CE9002E");
-//        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
-//        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
+        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
+        desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
         client = new SeeTestClient(driver);
@@ -97,10 +97,10 @@ public class GoogleSpeechToText {
 
     @Test
     public void testing() throws InterruptedException {
-        client.setProperty("ios.dump.focus.process", "process_name:votd");
-        Thread.sleep(10000);
-        String dump = client.getVisualDump("NATIVE");
-        System.out.println(dump);
+//        client.setProperty("ios.dump.focus.process", "process_name:votd");
+//        Thread.sleep(10000);
+//        String dump = client.getVisualDump("NATIVE");
+//        System.out.println(dump);
 //        String[] applications = client.getRunningApplications();
 //
 //        int counter = 0;
@@ -131,13 +131,12 @@ public class GoogleSpeechToText {
 //
 //        }
 
-        driver.executeScript("seetest:client.setProperty(\"ios.dump.focus.process\", \"process_name:CaptionPaneld\")");
-        String dump = (String) driver.executeScript("seetest:client.getVisualDump(\"NATIVE\")");
-        System.out.println(dump);
+//        driver.executeScript("seetest:client.setProperty(\"ios.dump.focus.process\", \"process_name:CaptionPaneld\")");
+//        String dump = (String) driver.executeScript("seetest:client.getVisualDump(\"NATIVE\")");
+//        System.out.println(dump);
 
         String firstElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\first_element.wav";
         boolean usernameTextFieldExists = goToNextElement(firstElementAudioFile, "usernametextfield");
-
 
         if (usernameTextFieldExists) {
 
@@ -145,12 +144,12 @@ public class GoogleSpeechToText {
             String currentItem = readSelectedItem(System.getProperty("user.dir") + "\\resources\\audio_recordings\\read_selected_item.wav");
             System.out.println(currentItem);
 
-//            String secondElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\second_element.wav";
-//            boolean passwordTextFieldExists = goToNextElement(secondElementAudioFile, "passwordtextfield");
-//
-//            if (passwordTextFieldExists) {
-//
-//            }
+            String secondElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\second_element.wav";
+            boolean passwordTextFieldExists = goToNextElement(secondElementAudioFile, "passwordtextfield");
+
+            if (passwordTextFieldExists) {
+
+            }
 
         }
     }

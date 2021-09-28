@@ -5,9 +5,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import kong.unirest.Unirest;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ScreenOrientation;
@@ -27,7 +24,7 @@ public class PerformanceTransaction {
      *
      * This approach is ALSO applicable for AndroidDriver.
      *
-     * In SeeTestCloud, we have the ability to capture Performance Metrics for our Mobile Tests.
+     * In the SeeTestCloud, we have the ability to capture Performance Metrics for our Mobile Tests.
      * In the Report, we capture data such as Average & Maximum consumed CPU / Memory / Battery, as well as
      * Network Traffic, Speed Index, and if applicable, download / upload speed for the Network Profile applied.
      *
@@ -46,8 +43,7 @@ public class PerformanceTransaction {
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-//        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-        desiredCapabilities.setCapability("udid", "00008030-001E1DE23CD0802E");
+        desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
 

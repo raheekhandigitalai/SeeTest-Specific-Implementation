@@ -3,6 +3,8 @@ package appium.oss.basics.applicationsetup;
 import helpers.PropertiesReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
@@ -22,18 +24,10 @@ public class AndroidApplicationSetup {
     protected AndroidDriver<AndroidElement> driver = null;
     protected DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-    String ACCESS_KEY = "";
-
-    // desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
-    // driver = new AndroidDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
-
-
-
-
     @BeforeMethod
     public void setUp(Method method) throws MalformedURLException {
         desiredCapabilities.setCapability("testName", method.getName());
-        desiredCapabilities.setCapability("accessKey", ACCESS_KEY);
+        desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
 
         desiredCapabilities.setCapability("automationName", "UIAutomator2");
@@ -44,7 +38,7 @@ public class AndroidApplicationSetup {
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
 
-        driver = new AndroidDriver<>(new URL("https://uscloud.experitest.com/wd/hub"), desiredCapabilities);
+        driver = new AndroidDriver<AndroidElement>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
     }
 
     @Test

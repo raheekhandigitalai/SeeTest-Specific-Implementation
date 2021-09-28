@@ -5,35 +5,35 @@
     <test name="1">
 
         <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
+            <class name="selenium.performance.PerformanceTransaction"/>
         </classes>
     </test>
 
     <test name="2">
 
         <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
+            <class name="selenium.performance.PerformanceTransaction"/>
         </classes>
     </test>
 
     <test name="3">
 
         <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
+            <class name="selenium.performance.PerformanceTransaction"/>
         </classes>
     </test>
 
     <test name="4">
 
         <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
+            <class name="selenium.performance.PerformanceTransaction"/>
         </classes>
     </test>
 
     <test name="5">
 
         <classes>
-            <class name="appium.seetest_specific.performance.PerformanceTransaction"/>
+            <class name="selenium.performance.PerformanceTransaction"/>
         </classes>
     </test>
 

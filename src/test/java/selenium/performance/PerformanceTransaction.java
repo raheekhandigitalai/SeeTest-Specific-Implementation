@@ -2,7 +2,6 @@ package selenium.performance;
 
 import helpers.PropertiesReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -69,7 +68,7 @@ public class PerformanceTransaction {
         System.out.println(navigationTransaction.toString());
 
         // Start of a Transaction
-        driver.executeScript("seetest:client.startPerformanceTransaction(\"1.0\")");
+        driver.executeScript("seetest:client.startPerformanceTransaction(\"1.2\")");
 
         driver.findElement(By.id("login_field")).sendKeys("rahee.khan@digital.ai");
         driver.findElement(By.id("password")).sendKeys("dummypassword");

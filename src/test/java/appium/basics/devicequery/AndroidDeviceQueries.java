@@ -1,5 +1,7 @@
 package appium.basics.devicequery;
 
+import com.experitest.client.Client;
+import com.experitest.client.GridClient;
 import helpers.PropertiesReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -59,7 +61,7 @@ public class AndroidDeviceQueries {
          */
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'"); // Find ANY Android Phone
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='TABLET'"); // Find ANY Android Tablet
-        desiredCapabilities.setCapability("deviceQuery", "@os='android' and contains(@version, '7')"); // Find an Android Device containing OS Version 7
+        desiredCapabilities.setCapability("deviceQuery", "@os='android' and contains(@version, '7.0')"); // Find an Android Device containing OS Version 7
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and starts-with(@name, 'Samsung')"); // Find an Android Device starting with name "Samsung"
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and @emulator='true'"); // Find ANY Android Emulator
 

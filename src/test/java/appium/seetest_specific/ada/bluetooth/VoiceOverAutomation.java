@@ -45,7 +45,7 @@ public class VoiceOverAutomation {
      *           <dependency>
      *             <groupId>com.experitest</groupId>
      *             <artifactId>appium-seetest-extension</artifactId>
-     *             <version>21.4</version>
+     *             <version>21.8</version>
      *         </dependency>
      *     </dependencies>
      *
@@ -81,7 +81,7 @@ public class VoiceOverAutomation {
         desiredCapabilities.setCapability("testName", method.getName());
         desiredCapabilities.setCapability("accessKey", new PropertiesReader().getProperty("seetest.accesskey"));
         desiredCapabilities.setCapability("deviceQuery", "@os='ios' and @category='PHONE'");
-        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
+//        desiredCapabilities.setCapability("app", "cloud:com.experitest.ExperiBank");
         desiredCapabilities.setCapability("bundleId", "com.experitest.ExperiBank");
 
         driver = new IOSDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
@@ -93,9 +93,9 @@ public class VoiceOverAutomation {
     public void record_audio_while_doing_voice_over() throws InterruptedException {
         client.startAudioRecording(System.getProperty("user.dir") + "\\resources\\audio_recordings\\audio.wav");
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
-            Thread.sleep(6000);
+            Thread.sleep(4000);
         }
         client.stopAudioRecording();
     }

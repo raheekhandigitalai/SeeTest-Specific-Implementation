@@ -40,7 +40,7 @@ public class GoogleSpeechToText {
      * While there are few ways, one way would be to convert the audio to a plain
      * human readable String, and process that mid script.
      *
-     * Google allows a way to accurately converts speech into text using an
+     * Google allows a way to accurately (most of the time) converts speech into text using an
      * API powered by Google’s AI technologies.
      *
      * https://cloud.google.com/speech-to-text
@@ -96,44 +96,7 @@ public class GoogleSpeechToText {
     }
 
     @Test
-    public void testing() throws InterruptedException {
-//        client.setProperty("ios.dump.focus.process", "process_name:votd");
-//        Thread.sleep(10000);
-//        String dump = client.getVisualDump("NATIVE");
-//        System.out.println(dump);
-//        String[] applications = client.getRunningApplications();
-//
-//        int counter = 0;
-//
-//        for (int i = 0; i < applications.length; i++) {
-//            System.out.println(counter++ + " : " + applications[i]);
-//        }
-    }
-
-    @Test
     public void record_and_validate() throws InterruptedException {
-//        String firstElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\first_element.wav";
-//        startAudioRecording(firstElementAudioFile);
-//
-//        // Perform a Voice Over operation
-//        sendKeysWithBT("" + Keys.RIGHT + Keys.LEFT);
-//
-//        // Hard coded sleep to wait for the VoiceOver to read back the text in time
-//        Thread.sleep(6000);
-//
-//        // Finish the Audio Recording
-//        stopAudioRecording();
-//
-//        boolean userNameTextFieldExists = doesItemExist("usernametextfield", firstElementAudioFile);
-//        System.out.println(userNameTextFieldExists);
-//
-//        if (userNameTextFieldExists) {
-//
-//        }
-
-//        driver.executeScript("seetest:client.setProperty(\"ios.dump.focus.process\", \"process_name:CaptionPaneld\")");
-//        String dump = (String) driver.executeScript("seetest:client.getVisualDump(\"NATIVE\")");
-//        System.out.println(dump);
 
         String firstElementAudioFile = System.getProperty("user.dir") + "\\resources\\audio_recordings\\first_element.wav";
         boolean usernameTextFieldExists = goToNextElement(firstElementAudioFile, "usernametextfield");

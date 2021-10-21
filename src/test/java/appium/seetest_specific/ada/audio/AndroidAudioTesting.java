@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -40,6 +41,12 @@ public class AndroidAudioTesting {
         desiredCapabilities.setCapability("deviceQuery", "@os='android' and @category='PHONE'");
 
         driver = new AndroidDriver<>(new URL(new PropertiesReader().getProperty("cloud.url")), desiredCapabilities);
+    }
+
+    @Test
+    public void sendKeysWithBT() {
+        driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.RIGHT);
+        driver.executeScript("seetest:client.sendKeysWithBT", "" + Keys.CONTROL + Keys.ALT + " ");
     }
 
     @Test

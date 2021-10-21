@@ -1,9 +1,13 @@
 package appium.oss.basics.browserstup;
 
 import helpers.PropertiesReader;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.remote.MobileBrowserType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

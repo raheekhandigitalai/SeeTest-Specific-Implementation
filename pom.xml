@@ -12,7 +12,7 @@
         <repository>
             <id>Experitest.repo1</id>
             <name>YourName</name>
-            <url>https://uscloud.experitest.com/repo/</url>
+            <url>https://verizon.experitest.com/repo/</url>
             <layout>default</layout>
         </repository>
     </repositories>

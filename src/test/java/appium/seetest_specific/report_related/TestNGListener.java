@@ -51,7 +51,7 @@ public class TestNGListener {
      * from the IDE as the exception was handled.
      * This will mark the test as Failed in the SeeTestReporter.
      *
-     * By using the Listener as per Line 6, we are directly listening to TestNG events, and based on the test result in the IDE,
+     * By using the Listener, we are directly listening to TestNG events, and based on the test result in the IDE,
      * is what we will show in the SeeTestReporter as well.
      *
      * The Listener can also be used in a parallel_simulator_and_physical_device.xml file, referenced like this:
